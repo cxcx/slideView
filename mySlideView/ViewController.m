@@ -9,17 +9,24 @@
 #import "ViewController.h"
 #import "SlideView.h"
 @interface ViewController ()
+{
 
+}
+@property (nonatomic, strong) UIView* backView;
 @property (nonatomic, strong)SlideView* sview;
+
 - (void)showView;
 - (void)addGuesture;
 - (void)dealSwipeGuesture:(UISwipeGestureRecognizer*)gestureRecognizer;
+- (void)setViewAfterLeftSwipe;
+- (void)setViewAfterRightSwipe;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _backView = [[UIView alloc] initWithFrame:self.view.frame];
     [self initView];
 }
 
@@ -29,10 +36,13 @@
  */
 - (void)initView
 {
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.1 green:0.3 blue:0.6 alpha:0.7];
+
+    //设置状态栏与
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stautsBarImage"]];
     self.navigationController.navigationBar.translucent = YES;
     
     //测试按钮
+    [_backView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"view"]]];
     UIButton* buttonShow                = [[UIButton alloc] initWithFrame:CGRectMake(270, 200, 100, 40)];
     buttonShow.backgroundColor          = [UIColor blueColor];
     buttonShow.layer.cornerRadius       = 8.f;
@@ -43,14 +53,15 @@
     buttonHide.layer.cornerRadius       = 8.f;
     [buttonHide setTitle:@"hide" forState:UIControlStateNormal];
     [buttonHide addTarget:self action:@selector(hideView) forControlEvents:UIControlEventTouchDown];
-    [self.view addSubview:buttonShow];
-    [self.view addSubview:buttonHide];
+    [_backView addSubview:buttonShow];
+    [_backView addSubview:buttonHide];
+    [self.view addSubview:_backView];
     
-    _sview                              = [[SlideView alloc] initSlideView];
-    _sview.alpha                        = 0.9;
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    _sview           = [[SlideView alloc] initSlideView];
+    _sview.alpha     = 0.9;
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;                     //获取主window,在导航条之上创建侧滑视图
     [window addSubview:_sview];
-    [self addGuesture];
+    [self addGuesture];                                                                 //添加视图手势
 }
 
 /**
@@ -62,8 +73,8 @@
     UISwipeGestureRecognizer* rightSwipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dealSwipeGuesture:)];
     leftSwipeGesture.direction                  = UISwipeGestureRecognizerDirectionLeft;
     rightSwipeGesture.direction                 = UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:leftSwipeGesture];
-    [self.view addGestureRecognizer:rightSwipeGesture];
+    [_backView addGestureRecognizer:leftSwipeGesture];
+    [_backView addGestureRecognizer:rightSwipeGesture];
 }
 
 /**
@@ -76,23 +87,63 @@
     if (gestureRecognizer.direction == UISwipeGestureRecognizerDirectionRight)
     {
         [self showView];
+        [UIView animateWithDuration:0.5 animations:^(void){
+             _backView.center = CGPointMake(_backView.center.x + SLIDEWIDTH, _backView.center.y);
+        }];
     }
     else if (gestureRecognizer.direction == UISwipeGestureRecognizerDirectionLeft)
     {
         [self hideView];
+        [UIView animateWithDuration:0.5 animations:^(void){
+            _backView.center = CGPointMake(_backView.center.x - SLIDEWIDTH, _backView.center.y);
+        }];
     }
 }
 
 - (void)showView
 {
     [_sview showSlideView];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)hideView
 {
     [_sview hideSlideView];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
     
 }
+
+
+
+
+//
+//
+//
+///**
+// *  右滑后主视图变化
+// *
+// *  @param tempSetView 通过block修改视图frame
+// */
+//- (void)setViewAfterRightSwipe
+//{
+//    void (^swipeView)(void) = ^(void){
+//        _backView.center = CGPointMake(_backView.center.x + SLIDEWIDTH, _backView.center.y);
+//    };
+//    swipeView();
+//}
+//
+///**
+// *  左滑后主视图变化
+// *
+// *  @param tempSetView  通过block修改视图frame
+// */
+//- (void)setViewAfterLeftSwipe
+//{
+//    void (^swipeView)(void) = ^(void){
+//        _backView.center = CGPointMake(_backView.center.x - SLIDEWIDTH, _backView.center.y);
+//    };
+//    swipeView();
+//    
+//}
+
 @end

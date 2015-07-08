@@ -11,10 +11,10 @@
 		E0712E481B4AB8FB000BBE1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0712E471B4AB8FB000BBE1C /* AppDelegate.m */; };
 		E0712E4B1B4AB8FC000BBE1C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0712E4A1B4AB8FC000BBE1C /* ViewController.m */; };
 		E0712E4E1B4AB8FC000BBE1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0712E4C1B4AB8FC000BBE1C /* Main.storyboard */; };
-		E0712E501B4AB8FC000BBE1C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0712E4F1B4AB8FC000BBE1C /* Images.xcassets */; };
 		E0712E531B4AB8FC000BBE1C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0712E511B4AB8FC000BBE1C /* LaunchScreen.xib */; };
 		E0712E5F1B4AB8FC000BBE1C /* mySlideViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E0712E5E1B4AB8FC000BBE1C /* mySlideViewTests.m */; };
 		E0712E6A1B4AB92F000BBE1C /* SlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0712E691B4AB92F000BBE1C /* SlideView.m */; };
+		E081DC751B4CCBCB00BD344E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E081DC741B4CCBCB00BD344E /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,13 +36,13 @@
 		E0712E491B4AB8FC000BBE1C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E0712E4A1B4AB8FC000BBE1C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E0712E4D1B4AB8FC000BBE1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E0712E4F1B4AB8FC000BBE1C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E0712E521B4AB8FC000BBE1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E0712E581B4AB8FC000BBE1C /* mySlideViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mySlideViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0712E5D1B4AB8FC000BBE1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0712E5E1B4AB8FC000BBE1C /* mySlideViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mySlideViewTests.m; sourceTree = "<group>"; };
 		E0712E681B4AB92F000BBE1C /* SlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideView.h; sourceTree = "<group>"; };
 		E0712E691B4AB92F000BBE1C /* SlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideView.m; sourceTree = "<group>"; };
+		E081DC741B4CCBCB00BD344E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 				E0712E491B4AB8FC000BBE1C /* ViewController.h */,
 				E0712E4A1B4AB8FC000BBE1C /* ViewController.m */,
 				E0712E4C1B4AB8FC000BBE1C /* Main.storyboard */,
-				E0712E4F1B4AB8FC000BBE1C /* Images.xcassets */,
+				E081DC741B4CCBCB00BD344E /* Images.xcassets */,
 				E0712E511B4AB8FC000BBE1C /* LaunchScreen.xib */,
 				E0712E421B4AB8FB000BBE1C /* Supporting Files */,
 			);
@@ -204,9 +204,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E081DC751B4CCBCB00BD344E /* Images.xcassets in Resources */,
 				E0712E4E1B4AB8FC000BBE1C /* Main.storyboard in Resources */,
 				E0712E531B4AB8FC000BBE1C /* LaunchScreen.xib in Resources */,
-				E0712E501B4AB8FC000BBE1C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +424,7 @@
 				E0712E641B4AB8FC000BBE1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E0712E651B4AB8FC000BBE1C /* Build configuration list for PBXNativeTarget "mySlideViewTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +433,7 @@
 				E0712E671B4AB8FC000BBE1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

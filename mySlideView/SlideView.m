@@ -19,7 +19,8 @@
 - (instancetype)initSlideView
 {
     self = [super initWithFrame:CGRectMake(-SLIDEWIDTH, 0, SLIDEWIDTH, [[UIScreen mainScreen] bounds].size.height)];
-    self.backgroundColor = [UIColor blueColor];
+    UIImage* backgroundImage = [UIImage imageNamed:@"slideImage"];
+    [self setBackgroundColor:[UIColor colorWithPatternImage:backgroundImage]];
     return self;
 }
 
