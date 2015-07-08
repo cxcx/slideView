@@ -24,7 +24,9 @@
 }
 
 
-
+/**
+ *  初始化视图
+ */
 - (void)initView
 {
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.1 green:0.3 blue:0.6 alpha:0.7];
@@ -51,6 +53,9 @@
     [self addGuesture];
 }
 
+/**
+ *  添加手势识别
+ */
 - (void)addGuesture
 {
     UISwipeGestureRecognizer* leftSwipeGesture  = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dealSwipeGuesture:)];
@@ -61,6 +66,11 @@
     [self.view addGestureRecognizer:rightSwipeGesture];
 }
 
+/**
+ *  处理左滑和右滑
+ *
+ *  @param gestureRecognizer 添加进self.view中的手势识别器
+ */
 - (void)dealSwipeGuesture:(UISwipeGestureRecognizer *)gestureRecognizer
 {
     if (gestureRecognizer.direction == UISwipeGestureRecognizerDirectionRight)
@@ -76,20 +86,12 @@
 - (void)showView
 {
     [_sview showSlideView];
-    //[self.navigationController.navigationBar setHidden:YES];
-//    [UIView animateWithDuration:0.5 animations:^(void){
-//        self.navigationController.navigationBar.alpha = 1.f;
-//    }];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)hideView
 {
     [_sview hideSlideView];
-   // [self.navigationController.navigationBar setHidden:NO];
-//    [UIView animateWithDuration:0.5 animations:^(void){
-//        self.navigationController.navigationBar.alpha = 1.f;
-//    }];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
 }

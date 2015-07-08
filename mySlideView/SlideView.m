@@ -11,7 +11,11 @@
 
 @implementation SlideView
 
-
+/**
+ *  初始化侧滑视图
+ *
+ *  @return 返回view
+ */
 - (instancetype)initSlideView
 {
     self = [super initWithFrame:CGRectMake(-SLIDEWIDTH, 0, SLIDEWIDTH, [[UIScreen mainScreen] bounds].size.height)];
@@ -29,6 +33,9 @@
     self.frame = CGRectMake(-SLIDEWIDTH, 0, SLIDEWIDTH, [[UIScreen mainScreen] bounds].size.height);
 }
 
+/**
+ *  使用block实现view动画；
+ */
 - (void)showSlideView
 {
     [UIView animateWithDuration:0.5 animations:^(void){
